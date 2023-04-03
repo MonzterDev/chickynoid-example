@@ -10,4 +10,6 @@ export interface SimulationState {
 	jumpThrust: number;
 	pushing: number;
 	characterData: unknown;
+
+	flyingCooldown: number;
 }

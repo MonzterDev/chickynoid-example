@@ -25,23 +25,24 @@ interface PlayerRecord {
 
 	OnBeforePlayerSpawn: Signal<() => void>;
 
-	SendEventToClient(event: unknown): void;
-	SendEventToClients(event: unknown): void;
+	SendEventToClient ( event: unknown ): void;
+	SendEventToClients ( event: unknown ): void;
 
-	// Weapons
+	Despawn (): void;
+	Spawn (): ServerChickynoid;
+	BotThink?: ( deltaTime: number ) => void;
+
+	SetCharacterMod ( characterModName: string ): void;
+
+	// Mod Data
 	currentWeapon: WeaponModule | undefined;
-	AddWeaponByName(name: string, equip: boolean, recordParam?: unknown): WeaponModule | undefined;
-	EquipWeapon(weaponRecordSerial: number): void;
-	DequipWeapon(): void;
-	ClearWeapons(): void;
-	RemoveWeaponRecord(weaponRecord: WeaponModule): void;
-	GetWeapons(): WeaponModule[];
-
-	Despawn(): void;
-	Spawn(): ServerChickynoid;
-	BotThink?: (deltaTime: number) => void;
-
-	SetCharacterMod(characterModName: string): void;
+	AddWeaponByName ( name: string, equip: boolean, recordParam?: unknown ): WeaponModule | undefined;
+	EquipWeapon ( weaponRecordSerial: number ): void;
+	DequipWeapon (): void;
+	ClearWeapons (): void;
+	RemoveWeaponRecord ( weaponRecord: WeaponModule ): void;
+	GetWeapons (): WeaponModule[];
+	hitPoints: number;
 }
 
 interface PlayerRecordConstructor {
@@ -49,7 +50,7 @@ interface PlayerRecordConstructor {
 	 * Constructed internally. Do not use directly.
 	 * @private
 	 */
-	new (): PlayerRecord;
+	new(): PlayerRecord;
 }
 
 declare const PlayerRecord: PlayerRecordConstructor;

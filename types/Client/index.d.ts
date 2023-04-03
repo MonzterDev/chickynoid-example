@@ -30,9 +30,12 @@ export namespace ChickynoidClient {
 	export let startTime: number;
 	export let weaponsClient: typeof WeaponsClient;
 
-	export let OnNetworkEvent: Signal<(event: unknown) => void>;
-	export let OnCharacterModelCreated: Signal<(characterModel: CharacterModel) => void>;
-	export let OnCharacterModelDestroyed: Signal<(characterModel: CharacterModel) => void>;
+	export let OnNetworkEvent: Signal<( event: unknown ) => void>;
+
+	/** Fired when any Player's Character Model is created */
+	export let OnCharacterModelCreated: Signal<( characterModel: CharacterModel ) => void>;
+	/** Fired when any Player's Character Model is destroyed */
+	export let OnCharacterModelDestroyed: Signal<( characterModel: CharacterModel ) => void>;
 
 	export const flags: {
 		HANDLE_CAMERA: boolean;
@@ -41,25 +44,26 @@ export namespace ChickynoidClient {
 	 * Creates connections so that Chickynoid can run on the client. Specifically, it connects to relevant networking and
 	 * RunService events.
 	 */
-	export function Setup(this: typeof ChickynoidClient): void;
+	export function Setup ( this: typeof ChickynoidClient ): void;
 
 	/**
 	 * Map of userId to CharacterRecord.
 	 */
-	export function GetCharacters(this: typeof ChickynoidClient): Map<number, CharacterRecord>;
+	export function GetCharacters ( this: typeof ChickynoidClient ): Map<number, CharacterRecord>;
 
-	export function RegisterMod(this: typeof ChickynoidClient, mod: ModuleScript): void;
+	export function RegisterMod ( this: typeof ChickynoidClient, mod: ModuleScript ): void;
 
-	export function GetClientChickynoid(this: typeof ChickynoidClient): ClientChickynoid;
+	export function GetCollisionRoot ( this: typeof ChickynoidClient ): Instance;
 
-	export function DebugMarkAllPlayers(this: typeof ChickynoidClient, text: string): void;
+	export function GetClientChickynoid ( this: typeof ChickynoidClient ): ClientChickynoid;
+
+	export function DebugMarkAllPlayers ( this: typeof ChickynoidClient, text: string ): void;
 
 	/** Set a callback for custom models. */
-	export function SetCharacterModel(
+	export function SetCharacterModel (
 		this: typeof ChickynoidClient,
-		callback: (userId: number) => Model | undefined,
+		callback: ( userId: number ) => Model | undefined,
 	): void;
 }
 export * from "./CharacterMod";
 export { ClientMods } from "./ClientMods";
-

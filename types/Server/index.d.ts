@@ -30,23 +30,31 @@ export namespace ChickynoidServer {
 		DEBUG_ANTILAG: boolean;
 	};
 
-	export const OnPlayerSpawn: Signal<(playerRecord: PlayerRecord) => void>;
-	export const OnPlayerDespawn: Signal<(playerRecord: PlayerRecord) => void>;
-	export const OnBeforePlayerSpawn: Signal<(playerRecord: PlayerRecord) => void>;
-	export const OnPlayerConnected: Signal<(server: typeof ChickynoidServer, playerRecord: PlayerRecord) => void>; // FIXME: This type is cursed
+	/** Fired when any Player's Character is spawned */
+	export const OnPlayerSpawn: Signal<( playerRecord: PlayerRecord ) => void>;
+
+	/** Fired when any Player's Character is despawned */
+	export const OnPlayerDespawn: Signal<( playerRecord: PlayerRecord ) => void>;
+
+	/** Fired before any Player's Character is spawned */
+	export const OnBeforePlayerSpawn: Signal<( playerRecord: PlayerRecord ) => void>;
+
+	/** Used by Weapons Module? */
+	export const OnPlayerConnected: Signal<( server: typeof ChickynoidServer, playerRecord: PlayerRecord ) => void>; // FIXME: This type is cursed
 
 	/** Creates connections so that Chickynoid can run on the server. */
-	export function Setup(this: typeof ChickynoidServer): void;
+	export function Setup ( this: typeof ChickynoidServer ): void;
 
-	export function RecreateCollisions(this: typeof ChickynoidServer, root: Instance): void;
+	/** Recreates & replicates Collision */
+	export function RecreateCollisions ( this: typeof ChickynoidServer, root: Instance ): void;
 
-	export function GetPlayerByUserId(this: typeof ChickynoidServer, userId: number): PlayerRecord | undefined;
+	/** Returns the PlayerRecord for the given Player */
+	export function GetPlayerByUserId ( this: typeof ChickynoidServer, userId: number ): PlayerRecord | undefined;
 
-	export function GetPlayers(this: typeof ChickynoidServer): Map<number, PlayerRecord>;
+	/** Returns all PlayerRecords */
+	export function GetPlayers ( this: typeof ChickynoidServer ): Map<number, PlayerRecord>;
 
-	export function RegisterMod(this: typeof ChickynoidServer, mod: ModuleScript): void;
-
-	export function AddConnection(
+	export function AddConnection (
 		this: typeof ChickynoidServer,
 		userId: number,
 		player: Player | undefined,

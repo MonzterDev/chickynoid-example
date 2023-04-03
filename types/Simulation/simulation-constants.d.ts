@@ -14,4 +14,5 @@ export interface SimulationConstants {
 	stepSize: number;
 	aimlock: number;
 	gravity: number;
+	flyFriction: number;
 }
