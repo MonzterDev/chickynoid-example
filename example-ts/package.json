@@ -1,0 +1,21 @@
+{
+  "name": "Chicky-TS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rbxtsc",
+    "watch": "rbxtsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^2.0.4-types.1",
+    "@rbxts/types": "^1.0.674",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@rbxts/services": "^1.5.1"
+  }
+}

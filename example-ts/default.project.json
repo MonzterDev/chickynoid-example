@@ -1,0 +1,78 @@
+{
+	"name": "roblox-ts-game",
+	"globIgnorePaths": [
+		"**/package.json",
+		"**/tsconfig.json"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"TS": {
+				"$path": "out/server"
+			},
+			"Examples": {
+				"$path": "out/customserver"
+			}
+		},
+		"ReplicatedFirst": {
+			"$className": "ReplicatedFirst",
+			"Examples": {
+				"$path": "out/customclient"
+			},
+			"Chickynoid": {
+				"$path": "out/Chickynoid"
+			}
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"rbxts_include": {
+				"$path": "include",
+				"node_modules": {
+					"$className": "Folder",
+					"@rbxts": {
+						"$path": "node_modules/@rbxts"
+					}
+				}
+			},
+			"TS": {
+				"$path": "out/shared"
+			}
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"TS": {
+					"$path": "out/client"
+				}
+			}
+		},
+		"Workspace": {
+			"$className": "Workspace",
+			"$path": "out/workspace"
+		  },
+		  "Lighting": {
+			"$className": "Lighting",
+			"$path": "out/lighting",
+			"$properties": {
+				"Brightness": 3,
+				"EnvironmentDiffuseScale": 1,
+				"EnvironmentSpecularScale": 1,
+				"GlobalShadows": true,
+				"ShadowSoftness": 1,
+				"Technology": "ShadowMap"
+			}
+		},
+		"Players": {
+			"$className": "Players",
+			"$properties": {
+				"CharacterAutoLoads": false
+			}
+		},
+		"StarterGui": {
+			"$className": "StarterGui",
+			"$path": "out/gui"
+		}
+	}
+}
